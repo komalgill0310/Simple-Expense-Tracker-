@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Expense Tracker</title>
+</head>
+<body>
+  <header>
+    <h1>Simple Expense Tracker</h1>
+  </header>
+  <form>
+    <label for="typeOfCard">Type:</label>
+    <select name="paymentOptions"id="optionForPayment">
+      <option value="0">Card</option>
+      <option value="1">Debit</option>
+      <option value="2">Visa Debit</option>
+      <option value="3">Visa</option>
+      <option value="4">MasterCard</option>
+      <option value="5">American Express</option>
+      <option value="6">Paypal</option>
+      <option value="7">Interac</option>
+      <option value="8">Cash</option>
+    </select>  
+    <br><br>
+    <label for="nameOfSpending">Name:</label>
+    <input type="text" id="spendingName" 
+    placeholder="What did you spend on?" required>
+    <br><br>
+    <label for="dateOfSpending">Date:</label>
+    <input type="date" id="dateForSpending" required>
+    <br><br>
+    <label for="amountspending">Amount:</label>
+    <input type="text" id="moneyUsed" placeholder="$$" required>
+    <br><br>
+    <input type="submit" name="add" id="addExpenseToTable">
+  </form>
+</body>
+</html>
