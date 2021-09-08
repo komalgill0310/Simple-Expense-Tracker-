@@ -4,6 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Expense Tracker</title>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
   <header>
@@ -28,12 +29,24 @@
     placeholder="What did you spend on?" required>
     <br><br>
     <label for="dateOfSpending">Date:</label>
-    <input type="date" id="dateForSpending" required>
+    <input type="date" id="spendingDate" required>
     <br><br>
     <label for="amountspending">Amount:</label>
-    <input type="text" id="moneyUsed" placeholder="$$" required>
+    <input type="text" id="moneyUsed" placeholder="$" required>
     <br><br>
     <input type="submit" name="add" id="addExpenseToTable">
   </form>
+  <table id="displayInput">
+    <tr>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Delete</th>
+    </tr>
+    <tr id="tableData">
+    </tr>
+  </table>
+  <script src="script.js"></script>
 </body>
 </html>
