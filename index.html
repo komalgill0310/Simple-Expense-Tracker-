@@ -10,7 +10,6 @@
   <header>
     <h1>Simple Expense Tracker</h1>
   </header>
-  <form>
     <label for="typeOfCard">Type:</label>
     <select name="paymentOptions"id="optionForPayment">
       <option value="0">Card</option>
@@ -35,7 +34,7 @@
     <input type="text" id="moneyUsed" placeholder="$" required>
     <br><br>
     <input type="submit" name="add" id="addExpenseToTable">
-  </form>
+    <br><br>
   <table id="displayInput">
     <tr>
       <th>Type</th>
@@ -44,8 +43,8 @@
       <th>Amount</th>
       <th>Delete</th>
     </tr>
-    <tr id="tableRow">
-    </tr>
+    <!-- <tr id="tableRow">
+    </tr> -->
   </table>
   <script src="script.js"></script>
 </body>
