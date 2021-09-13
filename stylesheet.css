@@ -6,3 +6,8 @@ table, th, td{
 #displayInput{
   width: 100%;  
 }
+
+.delete{
+  margin-left: 10px;
+  background-color: red;
+}

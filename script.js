@@ -1,69 +1,84 @@
 document.getElementById('addExpenseToTable')
-.addEventListener('click',displayExpense);
+.addEventListener('click', () => {
+  const expenseTypeInput = document.getElementById('optionForPayment');
+  const expenseDateInput = document.getElementById('spendingDate');
+  const expenseLocationInput = document.getElementById('spendingName');
+  const expenseAmountInput = document.getElementById('moneyUsed');
+  const expenseDescriptionInput = 
+  document.getElementById('spendingDescription');
 
-// function createExpenseObject(){
-//     const expenseItem = {
-//     expenseType: document.getElementById('optionForPayment').value,
-//     expenseDate: document.getElementById('spendingDate').value,
-//     expenseName: document.getElementById('spendingName').value,
-//     expenseAmount: document.getElementById('moneyUsed').value
-//  };
-//  return expenseItem;
-// }
+  const expenseItem = {
+    expenseType: expenseTypeInput.value,
+    expenseDate: expenseDateInput.value,
+    expenseLocation: expenseLocationInput.value,
+    expenseAmount: expenseAmountInput.value,
+    expenseDescription: expenseDescriptionInput.value
+  };
+  return displayExpense(expenseItem);
+});
 
-const expenseItem = {
-      expenseType: document.getElementById('optionForPayment').value,
-      expenseDate: document.getElementById('spendingDate').value,
-      expenseName: document.getElementById('spendingName').value,
-      expenseAmount: document.getElementById('moneyUsed').value
-   };
-
-function createTableRowExpenseType(){
-  const tableRowForexpenseType = document.createElement('tr');
-  return tableRowForexpenseType;
+function createTableRow(){
+  const tableRow = document.createElement('tr');
+  tableRow.setAttribute('class','row');
+  return tableRow;
 }
 
-function createTableRowExpenseDate(){
-   const tableRowForexpenseDate = document.createElement('tr');
-   return tableRowForexpenseDate;
-}
-
-function createTableRowExpenseName(){
-  const tableRowForexpenseName = document.createElement('tr');
-  return tableRowForexpenseName;
-}
-
-function createTableRowExpenseAmount(){
-  const tableRowForexpenseAmount = document.createElement('tr');
-  return tableRowForexpenseAmount;
-}
-
-function createTableDataForTableRow(){
+function createTableData(){
   const tableData = document.createElement('td');
   return tableData;
 }
 
-function displayExpense(){
-  console.log('this functin ran');
-  // const expenseObject = createExpenseObject();  
-  const tableDataInstance = createTableDataForTableRow();
-  const i = createTableRowExpenseType();
-  const j = createTableRowExpenseDate();
-  const k = createTableRowExpenseName();
-  const l = createTableRowExpenseAmount();
-  const a = tableDataInstance.appendChild(expenseItem.expenseType);
-  const b = tableDataInstance.appendChild(expenseItem.expenseDate);
-  const c = tableDataInstance.appendChild(expenseItem.expenseName);
-  const d = tableDataInstance.appendChild(expenseItem.expenseAmount);
-  const p = i.appendChild(a);
-  const q = j.appendChild(b);
-  const r = k.appendChild(c);
-  const s = l.appendChild(d);
-  document.getElementById('displayInput').appendChild(p);
-  document.getElementById('displayInput').appendChild(q);
-  document.getElementById('displayInput').appendChild(r);
-  document.getElementById('displayInput').appendChild(s);
+function createDeleteButton(){
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = "X";
+  deleteButton.setAttribute('class','delete');
+  return deleteButton;
 }
+
+function displayExpense(expense){
+
+  if(expense.expenseType,expense.expenseDate,expense.expenseLocation,expense.expenseAmount,expense.expenseDescription==="") return;
+
+  const tableRow = createTableRow();
+  const instanceOfCreateDeleteButton = createDeleteButton();
+
+  const expenseTypeCell = createTableData();
+  const expenseDateCell = createTableData();
+  const expenseLocationCell = createTableData();
+  const expenseAmountCell = createTableData();
+  const expenseDescriptionCell = createTableData();
+  const deleteCell = createTableData();
+
+  const tableBody = document.getElementById('tableBody');
+  const addRowToBody = tableBody.appendChild(tableRow);
+
+  addRowToBody.appendChild(expenseTypeCell);
+  addRowToBody.appendChild(expenseDateCell);
+  addRowToBody.appendChild(expenseLocationCell);
+  addRowToBody.appendChild(expenseAmountCell);
+  addRowToBody.appendChild(expenseDescriptionCell);
+  addRowToBody.appendChild(deleteCell);
+
+  deleteCell.appendChild(instanceOfCreateDeleteButton);
+
+  expenseTypeCell.textContent = expense.expenseType;
+  expenseDateCell.textContent = expense.expenseDate;
+  expenseLocationCell.textContent = expense.expenseLocation;
+  expenseAmountCell.textContent = expense.expenseAmount;
+  expenseDescriptionCell.textContent = expense.expenseDescription;    
+  
+  document.getElementById('myForm').reset();  
+}
+
+document.getElementById('displayInput').addEventListener('click', (e) => {
+  e.target.parentElement.parentElement.remove();
+});
+
+  
+  
+
+
+
 
 
 

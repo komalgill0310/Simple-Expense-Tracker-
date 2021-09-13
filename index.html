@@ -10,41 +10,49 @@
   <header>
     <h1>Simple Expense Tracker</h1>
   </header>
-    <label for="typeOfCard">Type:</label>
-    <select name="paymentOptions"id="optionForPayment">
-      <option value="0">Card</option>
-      <option value="1">Debit</option>
-      <option value="2">Visa Debit</option>
-      <option value="3">Visa</option>
-      <option value="4">MasterCard</option>
-      <option value="5">American Express</option>
-      <option value="6">Paypal</option>
-      <option value="7">Interac</option>
-      <option value="8">Cash</option>
-    </select>  
+    <form id="myForm">
+      <label for="typeOfCard">Type:</label>
+      <select name="optionForPayment"id="optionForPayment" required>
+        <option value="" disabled selected>Card</option>
+        <option value="Debit">Debit</option>
+        <option value="Visa Debit">Visa Debit</option>
+        <option value="Visa">Visa</option>
+        <option value="MasterCard">MasterCard</option>
+        <option value="American Express">American Express</option>
+        <option value="Paypal">Paypal</option>
+        <option value="Interac">Interac</option>
+        <option value="Cash">Cash</option>
+      </select>  
+      <br><br>
+      <label for="locationOfSpending">Location:</label>
+      <input type="text" id="spendingName" 
+      placeholder="Where did you spend on?" required>
+      <br><br>
+      <label for="dateOfSpending">Date:</label>
+      <input type="date" id="spendingDate" required>
+      <br><br>
+      <label for="amountspending">Amount:</label>
+      <input type="text" id="moneyUsed" placeholder="$" required>
+      <br><br>
+      <label for="spendingdescription">Description:</label>
+      <input type="text" id="spendingDescription" placeholder="Expense Description" required>
+      <br><br>
+      <input type="submit" name="add" id="addExpenseToTable">
+    </form>    
     <br><br>
-    <label for="nameOfSpending">Name:</label>
-    <input type="text" id="spendingName" 
-    placeholder="What did you spend on?" required>
-    <br><br>
-    <label for="dateOfSpending">Date:</label>
-    <input type="date" id="spendingDate" required>
-    <br><br>
-    <label for="amountspending">Amount:</label>
-    <input type="text" id="moneyUsed" placeholder="$" required>
-    <br><br>
-    <input type="submit" name="add" id="addExpenseToTable">
-    <br><br>
-  <table id="displayInput">
-    <tr>
-      <th>Type</th>
-      <th>Date</th>
-      <th>Name</th>
-      <th>Amount</th>
-      <th>Delete</th>
-    </tr>
-    <!-- <tr id="tableRow">
-    </tr> -->
+    <table id="displayInput">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th id="delete">Delete</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+      </tbody>    
   </table>
   <script src="script.js"></script>
 </body>
